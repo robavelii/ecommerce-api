@@ -1,7 +1,9 @@
 const { check } = require('express-validator');
 const { error } = require('../helpers/responseApi');
-const config = require('config');
+const dotenv = require('dotenv');
 const jwt = require('jsonwebtoken');
+
+dotenv.config();
 
 exports.registerValidation = [
   check('name', 'Name is required').not().isEmpty(),
@@ -31,7 +33,7 @@ exports.auth = async (req, res, next) => {
   if (!token) return res.status(404).json(error('No token found'));
 
   try {
-    const jwtData = await jwt.verify(token, config.get('jwtSecret'));
+    const jwtData = await jwt.verify(token, process.env.JWT_SEC);
 
     // Check the JWT token
     if (!jwtData)

@@ -4,10 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "set NODE_ENV=development && node index.js",
+    "start-prod": "set NODE_ENV=production && node index.js",
+    "server": "nodemon index.js",
+    "swagger-autogen": "node swagger.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Robel Fekadu",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -18,6 +21,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.6.5",
     "nodemon": "^2.0.20",
-    "randomstring": "^1.2.2"
+    "randomstring": "^1.2.2",
+    "stripe": "^10.13.0"
   }
 }

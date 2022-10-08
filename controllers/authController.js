@@ -1,7 +1,7 @@
-const { success, error, validation } = require('../../helpers/responseApi');
+const { success, error, validation } = require('../helpers/responseApi');
 const { validationResult } = require('express-validator');
 const User = require('../models/User');
-const bcrypt = require('bcrypt-js');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 //const { randomString } = require('../helpers/common');
 

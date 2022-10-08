@@ -1,4 +1,4 @@
-const { success, error, validation } = require('../../helpers/responseApi');
+const { success, error, validation } = require('../helpers/responseApi');
 const { validationResult } = require('express-validator');
 
 const Order = require('../models/Order');

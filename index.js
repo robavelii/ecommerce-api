@@ -5,6 +5,9 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 
 dotenv.config();
+app.use(cors());
+app.use(express.json());
+
 mongoose
   .connect(process.env.MONGO_URL)
   .then(() => console.log('Connected to database!'))
@@ -12,8 +15,6 @@ mongoose
     console.log(err);
   });
 
-app.use(cors());
-app.use(express.json);
 //routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/users', require('./routes/user'));
@@ -22,6 +23,6 @@ app.use('/api/carts', require('./routes/cart'));
 app.use('/api/orders', require('./routes/order'));
 app.use('/api/checkout', require('./routes/stripe'));
 
-app.listen(process.env.PORT || 5000, () => {
-  console.log('Server running on!');
-});
+// Run the server
+const PORT = process.env.PORT || 6000;
+app.listen(PORT, () => console.log(`Server burning on port ${PORT} 🔥`));
